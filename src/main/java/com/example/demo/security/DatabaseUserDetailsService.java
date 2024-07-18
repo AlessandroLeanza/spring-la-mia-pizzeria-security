@@ -27,5 +27,5 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 			
 			throw new UsernameNotFoundException("Utente non esistente");
 		}
-	}	
+	}
 }
