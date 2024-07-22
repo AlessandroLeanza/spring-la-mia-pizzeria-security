@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.Pizza;
 import com.example.demo.model.Sale;
 import com.example.demo.repository.PizzaRepository;
 import com.example.demo.repository.SaleRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.Valid;
 
@@ -116,5 +118,11 @@ public class PizzaController {
 		saleRepository.save(sale);
 		
 		return "redirect:/pizza";
+	}
+	
+	@ResponseBody
+	@GetMapping ("/pizza/{id}")
+	public Pizza getPizzaById(@PathVariable("id") Integer idPizza) {
+		return pizzaRepository.findById(idPizza).get();
 	}
 }

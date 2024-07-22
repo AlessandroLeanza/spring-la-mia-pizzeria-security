@@ -16,9 +16,9 @@ public class SecurityConfiguration {
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		
 		http.authorizeHttpRequests()
-		.requestMatchers("/pizza/create, /pizza/edit/**").hasAuthority("Admin")
-		.requestMatchers("/pizza, /pizza/**").hasAnyAuthority("Admin", "User")
-		//.requestMatchers("/**").permitAll()
+//		.requestMatchers("/pizza/create, /pizza/edit/**").hasAuthority("Admin")
+//		.requestMatchers("/pizza, /pizza/**").hasAnyAuthority("Admin", "User")
+		.requestMatchers("/**").permitAll()
 		.and().formLogin()
 		.and().logout()
 		.and().exceptionHandling();
