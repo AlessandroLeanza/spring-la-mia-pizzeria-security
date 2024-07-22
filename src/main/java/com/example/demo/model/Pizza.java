@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,8 +36,9 @@ public class Pizza {
 	private Double prezzo;
 	
 	@OneToMany(mappedBy = "pizza")
+	@JsonManagedReference
 	private List<Sale> sale;
-
+	
 	public Integer getId() {
 		return id;
 	}
